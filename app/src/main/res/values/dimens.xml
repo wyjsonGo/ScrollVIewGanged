@@ -1,0 +1,5 @@
+<resources>
+
+    <dimen name="v_scroll_width">150dp</dimen>
+
+</resources>

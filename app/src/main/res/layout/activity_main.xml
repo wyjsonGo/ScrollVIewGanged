@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="12dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="ScrollView Ganged"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_content_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
+
+        <!--layout_width="66dp" is 50dp add padding left 8dp and right 8dp-->
+        <com.wyjson.gangedtest.ObservableScrollView
+            android:id="@+id/sv_1"
+            android:layout_width="66dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_scroll_face_bg"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="😁"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="😿"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="😢"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="😎"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </com.wyjson.gangedtest.ObservableScrollView>
+
+        <com.wyjson.gangedtest.RoundedRectLinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_scroll_bg"
+            android:orientation="vertical"
+            app:radius="99dp"
+            app:radius_marginBottom="1dp"
+            app:radius_marginLeft="1dp"
+            app:radius_marginRight="1dp"
+            app:radius_marginTop="1dp">
+
+            <com.wyjson.gangedtest.ObservableScrollView
+                android:id="@+id/sv_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/v_scroll"
+                        android:layout_width="@dimen/v_scroll_width"
+                        android:layout_height="50dp"
+                        android:background="@drawable/shape_scroll_left_blue_bg" />
+
+                    <TextView
+                        android:id="@+id/tv_right"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:text="→"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_height="50dp" />
+
+                </LinearLayout>
+
+            </com.wyjson.gangedtest.ObservableScrollView>
+
+        </com.wyjson.gangedtest.RoundedRectLinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

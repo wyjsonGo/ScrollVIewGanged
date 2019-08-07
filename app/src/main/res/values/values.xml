@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundedRectListView">
+        <attr name="radius" format="dimension" />
+        <attr name="radius_marginTop" format="dimension" />
+        <attr name="radius_marginLeft" format="dimension" />
+        <attr name="radius_marginRight" format="dimension" />
+        <attr name="radius_marginBottom" format="dimension" />
+    </declare-styleable>
+</resources>
