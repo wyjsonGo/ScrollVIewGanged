@@ -38,11 +38,13 @@
         android:paddingBottom="20dp">
 
         <!--layout_width="66dp" is 50dp add padding left 8dp and right 8dp-->
-        <com.wyjson.gangedtest.view.SlideScrollView
-            android:id="@+id/sv_1"
+        <HorizontalScrollView
+            android:id="@+id/sv_face"
             android:layout_width="66dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_scroll_face_bg">
+            android:background="@drawable/shape_scroll_face_bg"
+            android:overScrollMode="never"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,7 +80,7 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-        </com.wyjson.gangedtest.view.SlideScrollView>
+        </HorizontalScrollView>
 
         <com.wyjson.gangedtest.view.RoundedRectLayout
             android:layout_width="200dp"
@@ -93,7 +95,7 @@
             app:radius_marginTop="1dp">
 
             <com.wyjson.gangedtest.view.SlideScrollView
-                android:id="@+id/sv_2"
+                android:id="@+id/sv_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -147,14 +149,13 @@
 
         <View
             android:id="@+id/v_anim"
-            android:layout_width="140dp"
-            android:layout_height="24dp"
+            android:layout_width="190dp"
+            android:layout_height="30dp"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="25dp"
             android:background="@drawable/ic_sv_bv_anim" />
 
         <com.wyjson.gangedtest.view.SlideScrollView
-            android:id="@+id/sv_3"
+            android:id="@+id/sv_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

@@ -30,9 +30,8 @@ public class MainActivity extends FragmentActivity {
         vb = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(vb.getRoot());
 
-        initSV();
-
-        initSV3();
+        setSV1();
+        setSV3();
     }
 
 
@@ -41,22 +40,18 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onResetClick(View view) {
-        vb.sv2.setScroll(true);
-        vb.sv2.post(() -> vb.sv2.scrollBy(distance, 0));
-//      ------
-        vb.sv3.setScroll(true);
-        vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
-        vb.sv3.post(() -> vb.sv3.scrollBy(distance2, 0));
+        setSV1();
+        setSV3();
     }
 
-    private void initSV() {
+    private void setSV1() {
         //this 150dip is @+id/v_scroll width
         distance = getResources().getDimensionPixelOffset(R.dimen.v_scroll_width);
-        
-        vb.sv2.setOnListener(new SlideScrollView.onListener() {
+        vb.sv1.post(() -> vb.sv1.scrollBy(distance, 0));
+        vb.sv1.setOnListener(new SlideScrollView.onListener() {
             @Override
             public void onBack() {
-                vb.sv2.post(() -> vb.sv2.smoothScrollBy(distance, 0));
+                vb.sv1.post(() -> vb.sv1.smoothScrollBy(distance, 0));
             }
 
             @Override
@@ -67,7 +62,7 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onScrollChanged(SlideScrollView scrollView, int x, int y, int oldX, int oldY) {
-                vb.sv1.scrollTo(distance - x, y);
+                vb.svFace.scrollTo(distance - x, y);
                 if (x == distance) {
                     vb.tvRight.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.shape_tv_right_white_bg));
                 } else {
@@ -75,21 +70,20 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         });
-        vb.sv2.post(() -> vb.sv2.scrollBy(distance, 0));
     }
 
-    private void initSV3() {
+    private void setSV3() {
         distance2 = dp2px(this, 190);
-        vb.sv3.setScroll(true);
+        vb.sv2.setScroll(true);
         vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
         ((AnimationDrawable) vb.vAnim.getBackground()).start();
-        vb.sv3.post(() -> vb.sv3.scrollBy(distance2, 0));
-        vb.sv3.setOnListener(new SlideScrollView.onListener() {
+        vb.sv2.post(() -> vb.sv2.scrollBy(distance2, 0));
+        vb.sv2.setOnListener(new SlideScrollView.onListener() {
 
             @Override
             public void onBack() {
                 vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
-                vb.sv3.post(() -> vb.sv3.smoothScrollBy(distance2, 0));
+                vb.sv2.post(() -> vb.sv2.smoothScrollBy(distance2, 0));
             }
 
             @Override
