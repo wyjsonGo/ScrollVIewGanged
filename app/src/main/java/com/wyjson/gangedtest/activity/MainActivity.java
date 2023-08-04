@@ -47,6 +47,7 @@ public class MainActivity extends FragmentActivity {
     private void setSV1() {
         //this 150dip is @+id/v_scroll width
         distance = getResources().getDimensionPixelOffset(R.dimen.v_scroll_width);
+        vb.sv1.setScroll(true);
         vb.sv1.post(() -> vb.sv1.scrollBy(distance, 0));
         vb.sv1.setOnListener(new SlideScrollView.onListener() {
             @Override
@@ -74,9 +75,10 @@ public class MainActivity extends FragmentActivity {
 
     private void setSV3() {
         distance2 = dp2px(this, 190);
-        vb.sv2.setScroll(true);
         vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
         ((AnimationDrawable) vb.vAnim.getBackground()).start();
+
+        vb.sv2.setScroll(true);
         vb.sv2.post(() -> vb.sv2.scrollBy(distance2, 0));
         vb.sv2.setOnListener(new SlideScrollView.onListener() {
 
