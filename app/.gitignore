@@ -1,1 +1,7 @@
 /build
+/debug
+/release
+/dev
+/prod
+/mapping.txt
+/seeds.txt

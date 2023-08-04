@@ -1,4 +1,4 @@
-package com.wyjson.gangedtest;
+package com.wyjson.gangedtest.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,38 +8,40 @@ import android.graphics.Path.Direction;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
+
+import com.wyjson.gangedtest.R;
 
 /**
  * https://www.cnblogs.com/longjunhao/p/9056128.html
  */
-public class RoundedRectLinearLayout extends LinearLayout {
+public class RoundedRectLayout extends FrameLayout {
     private Path mClip;
     private float mRadius;
     private float mRadiusMarginTop;
     private float mRadiusMarginLeft;
-    private float mRadiusMargeinRight;
-    private float mRadiusMargeinBottom;
+    private float mRadiusMarginRight;
+    private float mRadiusMarginBottom;
 
-    public RoundedRectLinearLayout(Context context, AttributeSet attrs) {
+    public RoundedRectLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public RoundedRectLinearLayout(Context context, AttributeSet attrs,
-                                   int defStyle) {
+    public RoundedRectLayout(Context context, AttributeSet attrs,
+                             int defStyle) {
         super(context, attrs, defStyle);
         init(attrs);
     }
 
     private void init(AttributeSet attrs) {
         if (attrs != null) {
-            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RoundedRectListView, 0, 0);
-            mRadius = a.getDimensionPixelSize(R.styleable.RoundedRectListView_radius, 0);
-            mRadiusMarginTop = a.getDimensionPixelSize(R.styleable.RoundedRectListView_radius_marginTop, 0);
-            mRadiusMarginLeft = a.getDimensionPixelSize(R.styleable.RoundedRectListView_radius_marginLeft, 0);
-            mRadiusMargeinRight = a.getDimensionPixelSize(R.styleable.RoundedRectListView_radius_marginRight, 0);
-            mRadiusMargeinBottom = a.getDimensionPixelSize(R.styleable.RoundedRectListView_radius_marginBottom, 0);
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RoundedRectLayout, 0, 0);
+            mRadius = a.getDimensionPixelSize(R.styleable.RoundedRectLayout_radius, 0);
+            mRadiusMarginTop = a.getDimensionPixelSize(R.styleable.RoundedRectLayout_radius_marginTop, 0);
+            mRadiusMarginLeft = a.getDimensionPixelSize(R.styleable.RoundedRectLayout_radius_marginLeft, 0);
+            mRadiusMarginRight = a.getDimensionPixelSize(R.styleable.RoundedRectLayout_radius_marginRight, 0);
+            mRadiusMarginBottom = a.getDimensionPixelSize(R.styleable.RoundedRectLayout_radius_marginBottom, 0);
             a.recycle();
         }
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
@@ -50,7 +52,7 @@ public class RoundedRectLinearLayout extends LinearLayout {
         super.onSizeChanged(w, h, oldw, oldh);
         if (mRadius > 0) {
             mClip = new Path();
-            RectF rectRound = new RectF(mRadiusMarginLeft, mRadiusMarginTop, w - mRadiusMargeinRight, h - mRadiusMargeinBottom);
+            RectF rectRound = new RectF(mRadiusMarginLeft, mRadiusMarginTop, w - mRadiusMarginRight, h - mRadiusMarginBottom);
             mClip.addRoundRect(rectRound, mRadius, mRadius, Direction.CW);
         }
     }

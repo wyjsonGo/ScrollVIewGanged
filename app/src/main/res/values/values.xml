@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="RoundedRectListView">
+    <declare-styleable name="RoundedRectLayout">
         <attr name="radius" format="dimension" />
         <attr name="radius_marginTop" format="dimension" />
         <attr name="radius_marginLeft" format="dimension" />
