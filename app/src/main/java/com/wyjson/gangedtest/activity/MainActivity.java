@@ -1,6 +1,5 @@
 package com.wyjson.gangedtest.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.wyjson.gangedtest.R;
 import com.wyjson.gangedtest.databinding.ActivityMainBinding;
-import com.wyjson.gangedtest.view.SlideVerifyView;
+import com.wyjson.gangedtest.view.SlideScrollView;
 
 /**
  * ScrollView Ganged
@@ -31,10 +30,9 @@ public class MainActivity extends FragmentActivity {
         vb = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(vb.getRoot());
 
-        setSVVerify();
+        initSV();
 
-        initData();
-        initView();
+        initSV3();
     }
 
 
@@ -43,51 +41,19 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onResetClick(View view) {
-
         vb.sv2.setScroll(true);
         vb.sv2.post(() -> vb.sv2.scrollBy(distance, 0));
 //      ------
-        vb.svVerify.setScroll(true);
+        vb.sv3.setScroll(true);
         vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
-        vb.svVerify.post(() -> vb.svVerify.scrollBy(distance2, 0));
+        vb.sv3.post(() -> vb.sv3.scrollBy(distance2, 0));
     }
 
-    private void setSVVerify() {
-        distance2 = dp2px(this, 190);
-        vb.svVerify.setScroll(true);
-        vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
-        ((AnimationDrawable) vb.vAnim.getBackground()).start();
-        vb.svVerify.post(() -> vb.svVerify.scrollBy(distance2, 0));
-        vb.svVerify.setOnListener(new SlideVerifyView.onListener() {
-
-            @Override
-            public void onBack() {
-                vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
-                vb.svVerify.post(() -> vb.svVerify.smoothScrollBy(distance2, 0));
-            }
-
-            @Override
-            public void onComplete() {
-                vb.ivBlock.setImageResource(R.drawable.ic_block_tick);
-                ((AnimationDrawable) vb.vAnim.getBackground()).stop();
-            }
-
-            @Override
-            public void onScrollChanged(SlideVerifyView scrollView, int x, int y, int oldX, int oldY) {
-
-            }
-        });
-    }
-
-
-    private void initData() {
+    private void initSV() {
         //this 150dip is @+id/v_scroll width
         distance = getResources().getDimensionPixelOffset(R.dimen.v_scroll_width);
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private void initView() {
-        vb.sv2.setOnListener(new SlideVerifyView.onListener() {
+        
+        vb.sv2.setOnListener(new SlideScrollView.onListener() {
             @Override
             public void onBack() {
                 vb.sv2.post(() -> vb.sv2.smoothScrollBy(distance, 0));
@@ -100,7 +66,7 @@ public class MainActivity extends FragmentActivity {
             }
 
             @Override
-            public void onScrollChanged(SlideVerifyView scrollView, int x, int y, int oldX, int oldY) {
+            public void onScrollChanged(SlideScrollView scrollView, int x, int y, int oldX, int oldY) {
                 vb.sv1.scrollTo(distance - x, y);
                 if (x == distance) {
                     vb.tvRight.setBackground(ContextCompat.getDrawable(MainActivity.this, R.drawable.shape_tv_right_white_bg));
@@ -110,6 +76,33 @@ public class MainActivity extends FragmentActivity {
             }
         });
         vb.sv2.post(() -> vb.sv2.scrollBy(distance, 0));
+    }
+
+    private void initSV3() {
+        distance2 = dp2px(this, 190);
+        vb.sv3.setScroll(true);
+        vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
+        ((AnimationDrawable) vb.vAnim.getBackground()).start();
+        vb.sv3.post(() -> vb.sv3.scrollBy(distance2, 0));
+        vb.sv3.setOnListener(new SlideScrollView.onListener() {
+
+            @Override
+            public void onBack() {
+                vb.ivBlock.setImageResource(R.drawable.ic_block_arrow);
+                vb.sv3.post(() -> vb.sv3.smoothScrollBy(distance2, 0));
+            }
+
+            @Override
+            public void onComplete() {
+                vb.ivBlock.setImageResource(R.drawable.ic_block_tick);
+                ((AnimationDrawable) vb.vAnim.getBackground()).stop();
+            }
+
+            @Override
+            public void onScrollChanged(SlideScrollView scrollView, int x, int y, int oldX, int oldY) {
+
+            }
+        });
     }
 
 }

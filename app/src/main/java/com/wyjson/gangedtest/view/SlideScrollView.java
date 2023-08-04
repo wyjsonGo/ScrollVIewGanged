@@ -5,24 +5,24 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
 
-public class SlideVerifyView extends HorizontalScrollView {
+public class SlideScrollView extends HorizontalScrollView {
 
-    public SlideVerifyView(Context context) {
+    public SlideScrollView(Context context) {
         super(context);
         initView();
     }
 
-    public SlideVerifyView(Context context, AttributeSet attrs) {
+    public SlideScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public SlideVerifyView(Context context, AttributeSet attrs, int defStyle) {
+    public SlideScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initView();
     }
 
-    public SlideVerifyView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SlideScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         initView();
     }
@@ -69,7 +69,7 @@ public class SlideVerifyView extends HorizontalScrollView {
 
         void onComplete();
 
-        void onScrollChanged(SlideVerifyView scrollView, int x, int y, int oldX, int oldY);
+        void onScrollChanged(SlideScrollView scrollView, int x, int y, int oldX, int oldY);
     }
 
     private boolean isScroll = true;
