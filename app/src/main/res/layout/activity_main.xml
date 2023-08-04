@@ -56,6 +56,7 @@
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:text="😁"
+                    android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
                 <TextView
@@ -63,6 +64,7 @@
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:text="😿"
+                    android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
                 <TextView
@@ -70,6 +72,7 @@
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:text="😢"
+                    android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
                 <TextView
@@ -77,6 +80,7 @@
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:text="😎"
+                    android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
             </LinearLayout>
