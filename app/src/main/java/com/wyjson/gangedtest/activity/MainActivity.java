@@ -45,6 +45,8 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void setSV1() {
+        vb.svFace.setScroll(false);
+
         //this 150dip is @+id/v_scroll width
         distance = getResources().getDimensionPixelOffset(R.dimen.v_scroll_width);
         vb.sv1.setScroll(true);
